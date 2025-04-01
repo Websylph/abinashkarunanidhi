@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Code, Palette, Database, Sparkles, Github, ExternalLink, Linkedin, Twitter } from "lucide-react";
@@ -186,19 +185,23 @@ const Index = () => {
             <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg opacity-0" style={{ animation: 'fade-in-up 0.6s ease-out forwards 0.3s' }}>
               <div className="relative aspect-video bg-muted overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 mix-blend-overlay"></div>
-                <div className="absolute inset-0 flex items-center justify-center bg-primary/10 text-primary text-6xl font-bold opacity-30">Project</div>
+                <img 
+                  src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80" 
+                  alt="Project 1" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold mb-2">E-Commerce Platform</h3>
-                    <p className="text-muted-foreground">A modern e-commerce solution with seamless checkout and inventory management.</p>
+                    <h3 className="text-xl font-bold mb-2">Portfolio Website</h3>
+                    <p className="text-muted-foreground">A modern portfolio website with smooth animations and responsive design.</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 mt-4">
-                  <Link to="/projects" className="text-primary font-medium inline-flex items-center hover:underline">
-                    View Details <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                  <a href="https://abinash-k.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-primary font-medium inline-flex items-center hover:underline">
+                    View Live <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -206,19 +209,23 @@ const Index = () => {
             <Card className="overflow-hidden transition-all duration-300 hover:shadow-lg opacity-0" style={{ animation: 'fade-in-up 0.6s ease-out forwards 0.5s' }}>
               <div className="relative aspect-video bg-muted overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 mix-blend-overlay"></div>
-                <div className="absolute inset-0 flex items-center justify-center bg-primary/10 text-primary text-6xl font-bold opacity-30">Project</div>
+                <img 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80" 
+                  alt="Project 2" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h3 className="text-xl font-bold mb-2">SaaS Dashboard</h3>
-                    <p className="text-muted-foreground">A comprehensive analytics dashboard for SaaS businesses with real-time data visualization.</p>
+                    <h3 className="text-xl font-bold mb-2">Growify Platform</h3>
+                    <p className="text-muted-foreground">A comprehensive growth platform with analytics and business solutions.</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4 mt-4">
-                  <Link to="/projects" className="text-primary font-medium inline-flex items-center hover:underline">
-                    View Details <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                  <a href="https://v0-growify-ladeyvrid11-f3xit0.vercel.app/projects" target="_blank" rel="noopener noreferrer" className="text-primary font-medium inline-flex items-center hover:underline">
+                    View Live <ArrowRight className="ml-1 h-4 w-4" />
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -228,77 +235,6 @@ const Index = () => {
             <Link to="/projects" className="btn-outline inline-flex items-center group">
               View All Projects
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </div>
-        </div>
-      </section>
-      
-      {/* Technologies Section */}
-      <section className="py-20 bg-secondary/20">
-        <div className="section-container">
-          <div className="text-center mb-16">
-            <AnimatedText
-              text="Technologies"
-              className="text-sm font-medium px-3 py-1 bg-primary/5 text-primary/80 rounded-full inline-block mb-4"
-              tag="span"
-            />
-            <AnimatedText
-              text="My Technology Stack"
-              className="text-3xl md:text-4xl font-bold tracking-tight"
-              tag="h2"
-              delay={200}
-            />
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              I work with a variety of modern technologies to build powerful, efficient, and scalable applications.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
-            {['React', 'TypeScript', 'Node.js', 'Next.js', 'Tailwind CSS', 'GraphQL', 'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Git', 'Figma'].map((tech, index) => (
-              <div 
-                key={tech} 
-                className="bg-white/80 backdrop-blur-md rounded-xl p-4 shadow-sm opacity-0"
-                style={{ animation: `fade-in-up 0.5s ease-out forwards ${index * 0.1}s` }}
-              >
-                <div className="font-medium">{tech}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Social Proof Section */}
-      <section className="py-20">
-        <div className="section-container">
-          <div className="text-center mb-16">
-            <AnimatedText
-              text="Testimonials"
-              className="text-sm font-medium px-3 py-1 bg-primary/5 text-primary/80 rounded-full inline-block mb-4"
-              tag="span"
-            />
-            <AnimatedText
-              text="What Clients Say"
-              className="text-3xl md:text-4xl font-bold tracking-tight"
-              tag="h2"
-              delay={200}
-            />
-          </div>
-          
-          <div className="max-w-3xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-md relative overflow-hidden opacity-0" style={{ animation: 'fade-in-up 0.6s ease-out forwards 0.3s' }}>
-            <div className="absolute -top-12 -left-12 text-8xl text-primary/10">"</div>
-            <blockquote className="text-lg text-center italic text-muted-foreground relative z-10 mb-6">
-              Working with this developer has been an absolute pleasure. They delivered a stunning website that perfectly captures our brand identity while ensuring seamless functionality across all devices.
-            </blockquote>
-            <div className="flex flex-col items-center">
-              <div className="font-semibold">Sarah Johnson</div>
-              <div className="text-sm text-muted-foreground">CEO, TechStart Inc.</div>
-            </div>
-          </div>
-          
-          <div className="text-center mt-8">
-            <Link to="/testimonials" className="text-primary hover:underline inline-flex items-center">
-              View All Testimonials
-              <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
         </div>
