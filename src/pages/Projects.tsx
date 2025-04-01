@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import AnimatedText from "../components/AnimatedText";
 import ProjectCard from "../components/ProjectCard";
@@ -151,7 +150,6 @@ const Projects = () => {
               description={project.description}
               image={project.image}
               tags={project.tags}
-              githubUrl={project.githubUrl}
               liveUrl={project.liveUrl}
               delay={index * 100}
             />
