@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Mail, MapPin, Phone, Clock, Send, Github, Twitter, Linkedin } from "lucide-react";
 import AnimatedText from "../components/AnimatedText";
@@ -69,10 +68,10 @@ const Contact = () => {
                   For project inquiries and questions
                 </p>
                 <a
-                  href="mailto:hello@example.com"
+                  href="mailto:karunanidhiabinash@gmail.com"
                   className="text-primary text-sm hover:underline"
                 >
-                  hello@example.com
+                  karunanidhiabinash@gmail.com
                 </a>
               </div>
             </div>
@@ -86,7 +85,7 @@ const Contact = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   Based in
                 </p>
-                <p className="text-sm">San Francisco, California</p>
+                <p className="text-sm">Mamallapuram, Chennai</p>
               </div>
             </div>
 
@@ -97,13 +96,13 @@ const Contact = () => {
               <div>
                 <h3 className="font-medium mb-1">Phone</h3>
                 <p className="text-sm text-muted-foreground mb-2">
-                  Monday - Friday, 9am - 5pm
+                  Direct Contact
                 </p>
                 <a
-                  href="tel:+12345678901"
+                  href="tel:+917305971450"
                   className="text-primary text-sm hover:underline"
                 >
-                  +1 (234) 567-8901
+                  +91 7305971450
                 </a>
               </div>
             </div>
