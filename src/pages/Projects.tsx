@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import AnimatedText from "../components/AnimatedText";
 import ProjectCard from "../components/ProjectCard";
@@ -11,7 +12,7 @@ const Projects = () => {
       title: "Modern Portfolio",
       description:
         "A sleek portfolio website with modern design, animations, and responsive layout.",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/64dd862a-2092-4e0d-b248-bfc9a17a252b.png",
       tags: ["React", "Tailwind CSS", "Framer Motion"],
       categories: ["web", "frontend"],
       liveUrl: "https://abinash-k.vercel.app/",
@@ -21,7 +22,7 @@ const Projects = () => {
       title: "Growify Platform",
       description:
         "A comprehensive business growth platform with project management and analytics features.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/a1347c6c-209e-4e68-bc37-e7aeee433d20.png",
       tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
       categories: ["web", "fullstack"],
       liveUrl: "https://v0-growify-ladeyvrid11-f3xit0.vercel.app/projects",
@@ -31,7 +32,7 @@ const Projects = () => {
       title: "Abinash Sculptures",
       description:
         "An elegant showcase website for sculpture artworks with gallery and contact features.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/9e83acc8-9a88-46bb-aaee-2e26c32c3e0f.png",
       tags: ["HTML", "CSS", "JavaScript", "Netlify"],
       categories: ["web", "frontend"],
       liveUrl: "https://abinashsculptures.netlify.app/",
@@ -41,7 +42,7 @@ const Projects = () => {
       title: "Personal Portfolio",
       description:
         "A creative portfolio website with project showcase and interactive elements.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/869f1ded-2379-4809-a5a3-f43d8bdab5ad.png",
       tags: ["Next.js", "Tailwind CSS", "Vercel"],
       categories: ["web", "frontend"],
       liveUrl: "https://abinash-karunanidhi.vercel.app/work",
@@ -51,7 +52,7 @@ const Projects = () => {
       title: "Sculptures Webflow",
       description:
         "A professionally designed website for sculpture exhibition and sales using Webflow.",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/5ab1bad6-8c4b-4ab5-9513-4071c3352cfb.png",
       tags: ["Webflow", "CMS", "Responsive Design"],
       categories: ["web", "frontend"],
       liveUrl: "https://abinashsculptures.webflow.io/",
@@ -61,7 +62,7 @@ const Projects = () => {
       title: "Thoufiq Portfolio",
       description:
         "A custom portfolio website with creative animations and modern design.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/031724f1-c642-4f64-a4ca-c936894e5d80.png",
       tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
       categories: ["web", "frontend"],
       liveUrl: "https://abinash-k.github.io/ThoufiqPortfolio/",
@@ -71,7 +72,7 @@ const Projects = () => {
       title: "Modern Web App",
       description:
         "A sleek, responsive web application with interactive UI components.",
-      image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/d13a4fb3-3c8b-4ed9-9e74-327b673491c8.png",
       tags: ["React", "Node.js", "Vercel"],
       categories: ["web", "fullstack"],
       liveUrl: "https://dhpti12i6wr39q1s.vercel.app/",
@@ -81,7 +82,7 @@ const Projects = () => {
       title: "Dashboard Application",
       description:
         "An intuitive dashboard application with data visualization and user management.",
-      image: "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?auto=format&fit=crop&q=80",
+      image: "/lovable-uploads/5204d6d4-ee99-4a72-86b8-5cd8966931c0.png",
       tags: ["React", "Tailwind CSS", "Vercel"],
       categories: ["web", "frontend"],
       liveUrl: "https://y64kws9pxc1rbhrs.vercel.app/",
