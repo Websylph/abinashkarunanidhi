@@ -1,6 +1,7 @@
+
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, Palette, Database, Sparkles, Github, ExternalLink, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Code, Palette, Database, Sparkles, Github, ExternalLink, Linkedin, Twitter, ArrowUpRight, BarChart4 } from "lucide-react";
 import AnimatedText from "../components/AnimatedText";
 import SkillCard from "../components/SkillCard";
 import { Card, CardContent } from "@/components/ui/card";
@@ -48,6 +49,28 @@ const Index = () => {
     { number: "60+", label: "Projects Completed" },
     { number: "95%", label: "Client Satisfaction" },
     { number: "24/7", label: "Support" },
+  ];
+
+  // SaaS Products for homepage section
+  const saasProducts = [
+    {
+      title: "Portfolio Website",
+      description: "A modern portfolio website with smooth animations and responsive design.",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
+      url: "https://abinash-k.vercel.app/"
+    },
+    {
+      title: "Growify Platform",
+      description: "A comprehensive growth platform with analytics and business solutions.",
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
+      url: "https://v0-growify-ladeyvrid11-f3xit0.vercel.app/projects"
+    },
+    {
+      title: "Abinash Sculptures",
+      description: "An elegant showcase for handcrafted sculptures and art pieces.",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
+      url: "https://abinashsculptures.netlify.app/"
+    }
   ];
 
   return (
@@ -161,8 +184,71 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Featured Work Section */}
+      {/* SaaS Products Section (New) */}
       <section className="py-20">
+        <div className="section-container">
+          <div className="text-center mb-16">
+            <AnimatedText
+              text="SaaS Products"
+              className="text-sm font-medium px-3 py-1 bg-primary/5 text-primary/80 rounded-full inline-block mb-4"
+              tag="span"
+            />
+            <AnimatedText
+              text="Digital Solutions for Growth"
+              className="text-3xl md:text-4xl font-bold tracking-tight"
+              tag="h2"
+              delay={200}
+            />
+            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              Powerful SaaS applications designed to help businesses scale and succeed in the digital landscape.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {saasProducts.map((product, index) => (
+              <Card 
+                key={index} 
+                className="overflow-hidden transition-all duration-300 hover:shadow-lg opacity-0 border border-border/50" 
+                style={{ animation: 'fade-in-up 0.6s ease-out forwards ' + (index * 0.1 + 0.3) + 's' }}
+              >
+                <div className="relative aspect-video bg-muted overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 mix-blend-overlay"></div>
+                  <img 
+                    src={product.image} 
+                    alt={product.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">{product.title}</h3>
+                    <p className="text-muted-foreground mb-4">{product.description}</p>
+                  </div>
+                  <a 
+                    href={product.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-primary font-medium inline-flex items-center hover:underline group"
+                  >
+                    View Product
+                    <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/saas-products" className="btn-outline inline-flex items-center group">
+              View All SaaS Products
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
+      
+      {/* Featured Work Section */}
+      <section className="py-20 bg-secondary/10">
         <div className="section-container">
           <div className="text-center mb-16">
             <AnimatedText
