@@ -11,7 +11,6 @@ interface SaasProduct {
   description: string;
   image: string;
   features: string[];
-  url: string;
 }
 
 const SaasProducts = () => {
@@ -44,52 +43,46 @@ const SaasProducts = () => {
   const products: SaasProduct[] = [
     {
       id: 1,
+      title: "Divine Sculpture Tracker",
+      description: "A comprehensive platform for tracking and managing sculpture inventory, sales, and client information for artists and galleries.",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
+      features: ["Inventory Management", "Sales Tracking", "Client Database", "Analytics Dashboard"],
+    },
+    {
+      id: 2,
+      title: "WageWise Tracker",
+      description: "An intelligent salary and compensation tracking tool helping professionals monitor their career growth and plan for future financial goals.",
+      image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&q=80",
+      features: ["Salary Tracking", "Career Progression", "Market Comparison", "Financial Planning"],
+    },
+    {
+      id: 3,
       title: "Portfolio Website",
       description: "A modern, responsive portfolio website with smooth animations and interactive elements.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       features: ["Responsive Design", "Modern UI/UX", "Interactive Elements", "Optimized Performance"],
-      url: "https://abinash-k.vercel.app/"
     },
     {
-      id: 2,
+      id: 4,
       title: "Growify Platform",
       description: "A comprehensive growth platform with analytics and business solutions.",
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
       features: ["Business Analytics", "Growth Tracking", "User Management", "Interactive Dashboard"],
-      url: "https://v0-growify-ladeyvrid11-f3xit0.vercel.app/projects"
     },
     {
-      id: 3,
+      id: 5,
       title: "Abinash Sculptures",
       description: "An elegant showcase for handcrafted sculptures and art pieces.",
       image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
       features: ["Product Gallery", "E-commerce Integration", "Artist Portfolio", "Custom CMS"],
-      url: "https://abinashsculptures.netlify.app/"
     },
     {
-      id: 4,
+      id: 6,
       title: "Interactive Portfolio",
       description: "A creative and interactive portfolio with unique animations and transitions.",
       image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80",
       features: ["Creative UI", "Interactive Elements", "Project Showcase", "Contact Integration"],
-      url: "https://abinash-karunanidhi.vercel.app/work"
     },
-    {
-      id: 5,
-      title: "Abinash Sculptures Webflow",
-      description: "A professionally designed Webflow site for sculpture showcase and sales.",
-      image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80",
-      features: ["Webflow CMS", "Custom Animations", "Product Catalog", "Contact Form"],
-      url: "https://abinashsculptures.webflow.io/"
-    },
-    {
-      id: 6,
-      title: "Thoufiq Portfolio",
-      description: "A custom portfolio website with unique design elements and smooth navigation.",
-      image: "https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&q=80",
-      features: ["Custom Design", "Project Gallery", "Testimonials", "Contact Integration"],
-      url: "https://abinash-k.github.io/ThoufiqPortfolio/"
-    }
   ];
 
   return (
@@ -150,16 +143,6 @@ const SaasProducts = () => {
                     ))}
                   </ul>
                 </div>
-                
-                <a 
-                  href={product.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary font-medium inline-flex items-center hover:underline group"
-                >
-                  View Product 
-                  <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
               </CardContent>
             </Card>
           ))}
