@@ -1,6 +1,6 @@
 
 import { useEffect, useRef } from "react";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import AnimatedText from "../components/AnimatedText";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
@@ -61,27 +61,6 @@ const SaasProducts = () => {
       description: "A modern, responsive portfolio website with smooth animations and interactive elements.",
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80",
       features: ["Responsive Design", "Modern UI/UX", "Interactive Elements", "Optimized Performance"],
-    },
-    {
-      id: 4,
-      title: "Growify Platform",
-      description: "A comprehensive growth platform with analytics and business solutions.",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80",
-      features: ["Business Analytics", "Growth Tracking", "User Management", "Interactive Dashboard"],
-    },
-    {
-      id: 5,
-      title: "Abinash Sculptures",
-      description: "An elegant showcase for handcrafted sculptures and art pieces.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80",
-      features: ["Product Gallery", "E-commerce Integration", "Artist Portfolio", "Custom CMS"],
-    },
-    {
-      id: 6,
-      title: "Interactive Portfolio",
-      description: "A creative and interactive portfolio with unique animations and transitions.",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80",
-      features: ["Creative UI", "Interactive Elements", "Project Showcase", "Contact Integration"],
     },
   ];
 
