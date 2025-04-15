@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import AnimatedText from "../components/AnimatedText";
 import ProjectCard from "../components/ProjectCard";
@@ -10,8 +9,7 @@ const Projects = () => {
     {
       id: 1,
       title: "Modern Portfolio",
-      description:
-        "A sleek portfolio website with modern design, animations, and responsive layout.",
+      description: "A professionally crafted portfolio website showcasing creative work and achievements through an elegant, responsive design with smooth animations and intuitive navigation.",
       image: "/lovable-uploads/64dd862a-2092-4e0d-b248-bfc9a17a252b.png",
       tags: ["React", "Tailwind CSS", "Framer Motion"],
       categories: ["web", "frontend"],
@@ -20,8 +18,7 @@ const Projects = () => {
     {
       id: 2,
       title: "Growify Platform",
-      description:
-        "A comprehensive business growth platform with project management and analytics features.",
+      description: "An enterprise-grade business growth platform featuring comprehensive project management tools, real-time analytics, and team collaboration features to drive organizational success.",
       image: "/lovable-uploads/a1347c6c-209e-4e68-bc37-e7aeee433d20.png",
       tags: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
       categories: ["web", "fullstack"],
@@ -30,8 +27,7 @@ const Projects = () => {
     {
       id: 3,
       title: "Abinash Sculptures",
-      description:
-        "An elegant showcase website for sculpture artworks with gallery and contact features.",
+      description: "A sophisticated art gallery website that elegantly displays sculpture collections, featuring high-quality imagery, detailed artwork descriptions, and seamless contact integration.",
       image: "/lovable-uploads/9e83acc8-9a88-46bb-aaee-2e26c32c3e0f.png",
       tags: ["HTML", "CSS", "JavaScript", "Netlify"],
       categories: ["web", "frontend"],
@@ -40,8 +36,7 @@ const Projects = () => {
     {
       id: 4,
       title: "Personal Portfolio",
-      description:
-        "A creative portfolio website with project showcase and interactive elements.",
+      description: "A dynamic personal portfolio that highlights professional achievements and creative works through an interactive interface and engaging user experience.",
       image: "/lovable-uploads/869f1ded-2379-4809-a5a3-f43d8bdab5ad.png",
       tags: ["Next.js", "Tailwind CSS", "Vercel"],
       categories: ["web", "frontend"],
@@ -50,8 +45,7 @@ const Projects = () => {
     {
       id: 5,
       title: "Sculptures Webflow",
-      description:
-        "A professionally designed website for sculpture exhibition and sales using Webflow.",
+      description: "A custom-designed sculpture exhibition website built with Webflow, offering an immersive gallery experience and streamlined artwork purchase process.",
       image: "/lovable-uploads/5ab1bad6-8c4b-4ab5-9513-4071c3352cfb.png",
       tags: ["Webflow", "CMS", "Responsive Design"],
       categories: ["web", "frontend"],
@@ -60,8 +54,7 @@ const Projects = () => {
     {
       id: 6,
       title: "Thoufiq Portfolio",
-      description:
-        "A custom portfolio website with creative animations and modern design.",
+      description: "A creative portfolio website featuring innovative animations and modern design elements to showcase professional work and achievements.",
       image: "/lovable-uploads/031724f1-c642-4f64-a4ca-c936894e5d80.png",
       tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
       categories: ["web", "frontend"],
@@ -70,8 +63,7 @@ const Projects = () => {
     {
       id: 7,
       title: "Modern Web App",
-      description:
-        "A sleek, responsive web application with interactive UI components.",
+      description: "A cutting-edge web application featuring responsive design, interactive UI components, and seamless user experience across all devices.",
       image: "/lovable-uploads/d13a4fb3-3c8b-4ed9-9e74-327b673491c8.png",
       tags: ["React", "Node.js", "Vercel"],
       categories: ["web", "fullstack"],
@@ -80,13 +72,12 @@ const Projects = () => {
     {
       id: 8,
       title: "Dashboard Application",
-      description:
-        "An intuitive dashboard application with data visualization and user management.",
+      description: "A comprehensive dashboard solution providing data visualization, user management, and real-time analytics for business intelligence.",
       image: "/lovable-uploads/5204d6d4-ee99-4a72-86b8-5cd8966931c0.png",
       tags: ["React", "Tailwind CSS", "Vercel"],
       categories: ["web", "frontend"],
       liveUrl: "https://y64kws9pxc1rbhrs.vercel.app/",
-    },
+    }
   ];
 
   const filters = [
