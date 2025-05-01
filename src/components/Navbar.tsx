@@ -66,20 +66,9 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Tablet Navigation - Simplified Menu */}
-          <div className="hidden sm:flex md:hidden">
-            <button
-              className="text-primary p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <Menu size={24} />
-            </button>
-          </div>
-
-          {/* Mobile Menu Button */}
+          {/* Mobile & Tablet Menu Button */}
           <button
-            className="sm:hidden text-primary"
+            className="md:hidden text-primary p-2 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -88,20 +77,21 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile and Tablet Navigation Overlay */}
+      {/* Mobile and Tablet Navigation Overlay - Improved */}
       <div
-        className={`sm:block md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform ${
+        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full justify-center items-center space-y-6 p-8">
           <button
-            className="absolute top-4 right-4 text-primary"
+            className="absolute top-4 right-4 text-primary p-2"
             onClick={() => setIsMenuOpen(false)}
             aria-label="Close menu"
           >
             <X size={24} />
           </button>
+          
           {navLinks.map((link) => (
             <Link
               key={link.name}

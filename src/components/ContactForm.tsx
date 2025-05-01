@@ -34,7 +34,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
       <div className="space-y-1">
         <label htmlFor="name" className="text-sm font-medium flex items-center gap-2">
           <User size={16} />
@@ -80,7 +80,7 @@ const ContactForm = () => {
           required
           value={formData.message}
           onChange={handleChange}
-          rows={5}
+          rows={4}
           className="w-full px-4 py-3 rounded-md border border-input bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 resize-none"
           placeholder="How can I help you?"
         />

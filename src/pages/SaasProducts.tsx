@@ -88,10 +88,10 @@ const SaasProducts = () => {
           />
         </div>
 
-        {/* Products Grid - Improved tablet responsiveness */}
+        {/* Products Grid - With improved mobile and tablet responsiveness */}
         <div 
           ref={productsRef} 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-8 opacity-0"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-8 opacity-0"
         >
           {products.map((product, index) => (
             <Card 
@@ -107,17 +107,17 @@ const SaasProducts = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardContent className="p-4 sm:p-5 md:p-6">
+              <CardContent className="p-4 sm:p-5">
                 <h3 className="text-lg sm:text-xl font-bold mb-2">{product.title}</h3>
-                <p className="text-muted-foreground mb-4 text-sm sm:text-base">{product.description}</p>
+                <p className="text-muted-foreground mb-4 text-sm sm:text-base line-clamp-3">{product.description}</p>
                 
                 <div className="mb-4">
                   <h4 className="text-xs sm:text-sm font-medium mb-2">Key Features:</h4>
                   <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
                     {product.features.map((feature, i) => (
                       <li key={i} className="text-xs sm:text-sm text-muted-foreground flex items-center">
-                        <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2"></span>
-                        {feature}
+                        <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2 flex-shrink-0"></span>
+                        <span className="line-clamp-1">{feature}</span>
                       </li>
                     ))}
                   </ul>
