@@ -117,11 +117,11 @@
   }
 
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 lg:py-16;
   }
 
   .nav-link {
-    @apply relative px-3 py-2 text-sm rounded-md font-medium transition-colors duration-300
+    @apply relative px-2 md:px-3 py-1 md:py-2 text-sm rounded-md font-medium transition-colors duration-300
            after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary
            after:transition-all after:duration-300
            hover:text-primary hover:after:w-full;
@@ -132,19 +132,19 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-primary-foreground rounded-md font-medium 
+    @apply px-4 md:px-6 py-2 md:py-3 bg-primary text-primary-foreground rounded-md font-medium 
            transition-all duration-300 hover:bg-primary/90 focus:outline-none 
            focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-secondary text-secondary-foreground rounded-md font-medium 
+    @apply px-4 md:px-6 py-2 md:py-3 bg-secondary text-secondary-foreground rounded-md font-medium 
            transition-all duration-300 hover:bg-secondary/80 focus:outline-none 
            focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2;
   }
 
   .btn-outline {
-    @apply px-6 py-3 bg-transparent text-primary border border-primary rounded-md font-medium 
+    @apply px-4 md:px-6 py-2 md:py-3 bg-transparent text-primary border border-primary rounded-md font-medium 
            transition-all duration-300 hover:bg-primary/10 focus:outline-none 
            focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
   }
@@ -275,4 +275,28 @@ html {
 
 .animate-slide-in-left {
   animation: slide-in-left 0.6s forwards;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 640px) {
+  .section-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  h1, h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 0.9rem;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-outline {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }

@@ -65,24 +65,24 @@ const SaasProducts = () => {
   ];
 
   return (
-    <div className="pt-24">
+    <div className="pt-16 md:pt-20 lg:pt-24">
       {/* SaaS Products Header */}
       <section className="section-container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <AnimatedText
             text="SaaS Products"
-            className="text-sm font-medium px-3 py-1 bg-primary/5 text-primary/80 rounded-full inline-block mb-4"
+            className="text-sm font-medium px-3 py-1 bg-primary/5 text-primary/80 rounded-full inline-block mb-2 md:mb-4"
             tag="span"
           />
           <AnimatedText
             text="Digital Solutions That Drive Growth"
-            className="text-3xl md:text-4xl font-bold tracking-tight mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-3 md:mb-6"
             tag="h1"
             delay={200}
           />
           <AnimatedText
             text="Explore my collection of SaaS products designed to help businesses scale and succeed in the digital landscape."
-            className="text-muted-foreground max-w-2xl mx-auto"
+            className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base"
             tag="p"
             delay={300}
           />
@@ -91,7 +91,7 @@ const SaasProducts = () => {
         {/* Products Grid */}
         <div 
           ref={productsRef} 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 opacity-0"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 opacity-0"
         >
           {products.map((product, index) => (
             <Card 
@@ -107,15 +107,15 @@ const SaasProducts = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{product.title}</h3>
-                <p className="text-muted-foreground mb-4">{product.description}</p>
+              <CardContent className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold mb-2">{product.title}</h3>
+                <p className="text-muted-foreground mb-4 text-sm md:text-base">{product.description}</p>
                 
                 <div className="mb-4">
-                  <h4 className="text-sm font-medium mb-2">Key Features:</h4>
+                  <h4 className="text-xs md:text-sm font-medium mb-2">Key Features:</h4>
                   <ul className="grid grid-cols-2 gap-x-2 gap-y-1">
                     {product.features.map((feature, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-center">
+                      <li key={i} className="text-xs md:text-sm text-muted-foreground flex items-center">
                         <span className="w-1.5 h-1.5 bg-primary/60 rounded-full mr-2"></span>
                         {feature}
                       </li>
@@ -129,25 +129,25 @@ const SaasProducts = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-12 md:py-16 lg:py-20">
         <div className="section-container">
-          <div className="bg-primary/5 rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div className="bg-primary/5 rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-12 relative overflow-hidden">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
             
             <div className="relative z-10 max-w-2xl">
               <AnimatedText
                 text="Need a custom SaaS solution?"
-                className="text-2xl md:text-3xl font-bold mb-4"
+                className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4"
                 tag="h2"
               />
               <AnimatedText
                 text="I can help you build a tailor-made application that perfectly fits your business requirements and goals."
-                className="text-muted-foreground mb-8"
+                className="text-muted-foreground mb-6 md:mb-8 text-sm md:text-base"
                 tag="p"
                 delay={200}
               />
-              <Link to="/contact" className="btn-primary inline-flex items-center gap-2 group">
+              <Link to="/contact" className="btn-primary inline-flex items-center gap-2 group text-sm md:text-base py-2 md:py-3">
                 Get in Touch
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>

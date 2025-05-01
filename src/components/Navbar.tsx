@@ -40,15 +40,15 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-3 bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100/50"
-          : "py-5 bg-transparent"
+          ? "py-2 bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100/50"
+          : "py-3 md:py-4 lg:py-5 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between">
           <Link
             to="/"
-            className="text-xl font-bold tracking-tight text-primary transition-colors duration-300"
+            className="text-lg md:text-xl font-bold tracking-tight text-primary transition-colors duration-300"
           >
             <span className="text-gradient">Portfolio.</span>
           </Link>
@@ -83,12 +83,12 @@ const Navbar = () => {
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex flex-col h-full justify-center items-center space-y-8 p-8">
+        <div className="flex flex-col h-full justify-center items-center space-y-6 p-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
-              className={`text-xl font-medium ${
+              className={`text-lg font-medium ${
                 isActive(link.path)
                   ? "text-primary"
                   : "text-foreground/70 hover:text-primary"

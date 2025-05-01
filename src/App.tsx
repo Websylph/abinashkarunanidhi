@@ -14,23 +14,27 @@ import SaasProducts from "./pages/SaasProducts";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { useIsMobile } from "./hooks/use-mobile";
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    if (!isMobile) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -39,12 +43,14 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
-            <div
-              className="animated-cursor hidden md:block"
-              style={{
-                transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-              }}
-            />
+            {!isMobile && (
+              <div
+                className="animated-cursor hidden md:block"
+                style={{
+                  transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+                }}
+              />
+            )}
             <div className="noise" />
             <Navbar />
             <main className="flex-grow">
