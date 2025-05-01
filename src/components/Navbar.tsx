@@ -41,7 +41,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "py-2 bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-100/50"
-          : "py-3 md:py-4 lg:py-5 bg-transparent"
+          : "py-3 sm:py-4 lg:py-5 bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,9 +66,20 @@ const Navbar = () => {
             ))}
           </div>
 
+          {/* Tablet Navigation - Simplified Menu */}
+          <div className="hidden sm:flex md:hidden">
+            <button
+              className="text-primary p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-primary"
+            className="sm:hidden text-primary"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -77,13 +88,20 @@ const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile and Tablet Navigation Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform ${
+        className={`sm:block md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full justify-center items-center space-y-6 p-8">
+          <button
+            className="absolute top-4 right-4 text-primary"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close menu"
+          >
+            <X size={24} />
+          </button>
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -93,6 +111,7 @@ const Navbar = () => {
                   ? "text-primary"
                   : "text-foreground/70 hover:text-primary"
               } transition-colors duration-300`}
+              onClick={() => setIsMenuOpen(false)}
             >
               {link.name}
             </Link>

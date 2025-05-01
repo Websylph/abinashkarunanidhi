@@ -45,7 +45,7 @@ const App = () => {
           <div className="min-h-screen flex flex-col">
             {!isMobile && (
               <div
-                className="animated-cursor hidden md:block"
+                className="animated-cursor hidden sm:block"
                 style={{
                   transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
                 }}
