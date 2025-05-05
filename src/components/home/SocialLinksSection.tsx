@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Twitter, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Twitter, ExternalLink, Layout } from "lucide-react";
 
 const SocialLinksSection = () => {
   return (
@@ -17,6 +17,9 @@ const SocialLinksSection = () => {
           </a>
           <a href="#" className="p-3 rounded-full bg-white/80 shadow-sm transition-transform hover:scale-110" aria-label="Website">
             <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+          </a>
+          <a href="#" className="p-3 rounded-full bg-white/80 shadow-sm transition-transform hover:scale-110" aria-label="Gallery">
+            <Layout className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
           </a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 const StatsSection = () => {
   const statsRef = useRef<HTMLDivElement>(null);
@@ -18,12 +18,12 @@ const StatsSection = () => {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className="text-center opacity-0" 
+              className="text-center" 
               style={{
                 animation: `fade-in-up 0.6s ease-out forwards ${index * 0.1 + 0.3}s`
               }}
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-1 sm:mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-gradient-royal mb-1 sm:mb-2">
                 {stat.number}
               </div>
               <div className="text-sm sm:text-base text-muted-foreground">
