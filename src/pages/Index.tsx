@@ -15,11 +15,13 @@ import {
   BarChart4, 
   Eye, 
   Star,
-  Rocket
+  Rocket,
+  Users
 } from "lucide-react";
 import AnimatedText from "../components/AnimatedText";
 import SkillCard from "../components/SkillCard";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -58,7 +60,7 @@ const Index = () => {
   }, []);
   
   const stats = [
-    { number: "5+", label: "Years Experience" },
+    { number: "2+", label: "Years Experience" },
     { number: "60+", label: "Projects Completed" },
     { number: "95%", label: "Client Satisfaction" },
     { number: "24/7", label: "Support" }
@@ -66,7 +68,7 @@ const Index = () => {
   
   return (
     <div className="pt-12 sm:pt-14 md:pt-16">
-      {/* Hero Section - Updated with more responsive classes */}
+      {/* Hero Section - Updated with custom avatars */}
       <section className="relative hero-section flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background/90"></div>
@@ -87,6 +89,30 @@ const Index = () => {
               I blend elegant design with cutting-edge technology to create memorable user experiences that elevate brands and solve real problems and Make Your Digital Presence 
             </p>
             
+            <div className="flex justify-center mb-8">
+              <div className="flex -space-x-4">
+                <Avatar className="border-2 border-white h-14 w-14">
+                  <AvatarImage src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80" alt="User" />
+                  <AvatarFallback className="bg-gradient-royal text-white">JD</AvatarFallback>
+                </Avatar>
+                <Avatar className="border-2 border-white h-14 w-14">
+                  <AvatarImage src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80" alt="User" />
+                  <AvatarFallback className="bg-gradient-royal text-white">SM</AvatarFallback>
+                </Avatar>
+                <Avatar className="border-2 border-white h-14 w-14">
+                  <AvatarImage src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" alt="User" />
+                  <AvatarFallback className="bg-gradient-royal text-white">AB</AvatarFallback>
+                </Avatar>
+                <Avatar className="border-2 border-white h-14 w-14">
+                  <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80" alt="User" />
+                  <AvatarFallback className="bg-gradient-royal text-white">TK</AvatarFallback>
+                </Avatar>
+                <Avatar className="border-2 border-white bg-white h-14 w-14 flex items-center justify-center">
+                  <span className="text-sm font-medium text-gradient-royal">25+</span>
+                </Avatar>
+              </div>
+            </div>
+            
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <Link to="/projects" className="btn-royal w-full sm:w-auto">
                 View My Work
@@ -95,12 +121,6 @@ const Index = () => {
                 Get In Touch
               </Link>
             </div>
-          </div>
-        </div>
-        
-        <div className="absolute bottom-4 sm:bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 sm:w-8 sm:h-12 rounded-full border-2 border-primary/30 flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-primary/60 rounded-full animate-fade-in"></div>
           </div>
         </div>
       </section>
@@ -156,6 +176,12 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="relative mt-6 overflow-hidden h-48 rounded-lg">
+                  <div className="absolute inset-0 flex justify-end items-start p-4 z-10">
+                    <Avatar className="border-2 border-white h-14 w-14">
+                      <AvatarImage src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&q=80" alt="Team member" />
+                      <AvatarFallback className="bg-gradient-royal text-white">MK</AvatarFallback>
+                    </Avatar>
+                  </div>
                   <img 
                     src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80" 
                     alt="Team collaboration" 
@@ -198,6 +224,12 @@ const Index = () => {
                   </div>
                 </div>
                 <div className="relative mt-6 overflow-hidden h-48 rounded-lg">
+                  <div className="absolute inset-0 flex justify-end items-start p-4 z-10">
+                    <Avatar className="border-2 border-white h-14 w-14">
+                      <AvatarImage src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80" alt="Team member" />
+                      <AvatarFallback className="bg-gradient-royal text-white">JW</AvatarFallback>
+                    </Avatar>
+                  </div>
                   <img 
                     src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80" 
                     alt="Futuristic technology" 
@@ -234,7 +266,7 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Services Section */}
+      {/* Services Section with Avatars */}
       <section className="py-12 sm:py-16 md:py-20 bg-secondary/30">
         <div className="section-container">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
@@ -252,10 +284,85 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            <SkillCard icon={<Code className="text-[hsl(var(--royal-blue))]" size={24} />} title="Web Development" description="Building responsive, performant websites with modern frameworks and clean code principles." delay={100} />
-            <SkillCard icon={<Palette className="text-[hsl(var(--royal-blue))]" size={24} />} title="UI/UX Design" description="Creating intuitive, beautiful interfaces focused on user experience and conversion." delay={200} />
-            <SkillCard icon={<Database className="text-[hsl(var(--royal-blue))]" size={24} />} title="Backend Solutions" description="Developing robust backend systems with secure APIs and efficient database architecture." delay={300} />
-            <SkillCard icon={<Sparkles className="text-[hsl(var(--royal-blue))]" size={24} />} title="Creative Solutions" description="Solving complex problems with innovative approaches and creative thinking." delay={400} />
+            <Card className="relative overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <Avatar className="border-2 border-white h-12 w-12 shadow-md">
+                  <AvatarImage src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80" alt="Developer" />
+                  <AvatarFallback className="bg-gradient-royal text-white">RM</AvatarFallback>
+                </Avatar>
+              </div>
+              <CardContent className="p-6 pt-8">
+                <div className="mb-4">
+                  <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
+                    <Code className="text-[hsl(var(--royal-blue))]" size={24} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Web Development</h3>
+                <p className="text-muted-foreground text-sm">
+                  Building responsive, performant websites with modern frameworks and clean code principles.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="relative overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <Avatar className="border-2 border-white h-12 w-12 shadow-md">
+                  <AvatarImage src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80" alt="Designer" />
+                  <AvatarFallback className="bg-gradient-royal text-white">NP</AvatarFallback>
+                </Avatar>
+              </div>
+              <CardContent className="p-6 pt-8">
+                <div className="mb-4">
+                  <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
+                    <Palette className="text-[hsl(var(--royal-blue))]" size={24} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">UI/UX Design</h3>
+                <p className="text-muted-foreground text-sm">
+                  Creating intuitive, beautiful interfaces focused on user experience and conversion.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="relative overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <Avatar className="border-2 border-white h-12 w-12 shadow-md">
+                  <AvatarImage src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80" alt="Engineer" />
+                  <AvatarFallback className="bg-gradient-royal text-white">DB</AvatarFallback>
+                </Avatar>
+              </div>
+              <CardContent className="p-6 pt-8">
+                <div className="mb-4">
+                  <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
+                    <Database className="text-[hsl(var(--royal-blue))]" size={24} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Backend Solutions</h3>
+                <p className="text-muted-foreground text-sm">
+                  Developing robust backend systems with secure APIs and efficient database architecture.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="relative overflow-hidden">
+              <div className="absolute top-4 right-4">
+                <Avatar className="border-2 border-white h-12 w-12 shadow-md">
+                  <AvatarImage src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Creative" />
+                  <AvatarFallback className="bg-gradient-royal text-white">SK</AvatarFallback>
+                </Avatar>
+              </div>
+              <CardContent className="p-6 pt-8">
+                <div className="mb-4">
+                  <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
+                    <Sparkles className="text-[hsl(var(--royal-blue))]" size={24} />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Creative Solutions</h3>
+                <p className="text-muted-foreground text-sm">
+                  Solving complex problems with innovative approaches and creative thinking.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -290,6 +397,12 @@ const Index = () => {
               <div className="relative aspect-video bg-muted overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--royal-blue))]/20 to-secondary/20 mix-blend-overlay"></div>
                 <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80" alt="Project 1" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 right-4">
+                  <Avatar className="border-2 border-white h-12 w-12">
+                    <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Project Owner" />
+                    <AvatarFallback className="bg-gradient-royal text-white">CN</AvatarFallback>
+                  </Avatar>
+                </div>
               </div>
               <CardContent className="p-4 sm:p-6">
                 <div className="flex justify-between items-start mb-3 sm:mb-4">
@@ -315,6 +428,12 @@ const Index = () => {
               <div className="relative aspect-video bg-muted overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--royal-blue))]/20 to-secondary/20 mix-blend-overlay"></div>
                 <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80" alt="Project 2" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 right-4">
+                  <Avatar className="border-2 border-white h-12 w-12">
+                    <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" alt="Project Owner" />
+                    <AvatarFallback className="bg-gradient-royal text-white">MR</AvatarFallback>
+                  </Avatar>
+                </div>
               </div>
               <CardContent className="p-4 sm:p-6">
                 <div className="flex justify-between items-start mb-3 sm:mb-4">
@@ -349,6 +468,16 @@ const Index = () => {
             <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-[hsl(var(--royal-blue))]/10 rounded-full blur-3xl"></div>
             
             <div className="relative z-10 max-w-2xl">
+              <div className="flex items-center gap-4 mb-6">
+                <Avatar className="h-16 w-16 border-2 border-white">
+                  <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80" alt="CEO" />
+                  <AvatarFallback className="bg-gradient-royal text-white">JM</AvatarFallback>
+                </Avatar>
+                <div>
+                  <h3 className="font-semibold text-lg">John Morgan</h3>
+                  <p className="text-sm text-muted-foreground">Founder & CEO</p>
+                </div>
+              </div>
               <AnimatedText text="Interested in working together?" className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4" tag="h2" />
               <AnimatedText text="I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision." className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8" tag="p" delay={200} />
               <Link to="/contact" className="btn-royal inline-flex items-center gap-2 group">
