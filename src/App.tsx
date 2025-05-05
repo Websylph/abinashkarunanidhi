@@ -4,7 +4,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -13,28 +12,10 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { useIsMobile } from "./hooks/use-mobile";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-  const isMobile = useIsMobile();
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-    };
-
-    if (!isMobile) {
-      window.addEventListener("mousemove", handleMouseMove);
-    }
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [isMobile]);
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -42,14 +23,6 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
-            {!isMobile && (
-              <div
-                className="animated-cursor hidden sm:block"
-                style={{
-                  transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-                }}
-              />
-            )}
             <div className="noise" />
             <Navbar />
             <main className="flex-grow">

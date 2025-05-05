@@ -61,3 +61,43 @@
 .royal-blue-border {
   border-color: #3b82f6;
 }
+
+/* New gradient classes */
+.bg-gradient-royal {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+}
+
+.text-gradient-royal {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.border-gradient-royal {
+  border-color: #3b82f6;
+}
+
+/* Button with royal gradient */
+.btn-royal {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-royal:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Animation for elements that should animate when scrolled into view */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
