@@ -1,107 +1,76 @@
 
-import { Code, Palette, Database, Sparkles } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import AnimatedText from "@/components/AnimatedText";
 
 const ServicesSection = () => {
+  const services = [
+    {
+      title: "Web Development",
+      description: "Custom websites built with modern frameworks and best practices for performance and SEO.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      )
+    },
+    {
+      title: "UI/UX Design",
+      description: "User-centered design that focuses on creating intuitive and engaging user experiences.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-500">
+          <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+          <path d="M2 2l7.586 7.586"></path>
+          <circle cx="11" cy="11" r="2"></circle>
+        </svg>
+      )
+    },
+    {
+      title: "Mobile Apps",
+      description: "Native and cross-platform mobile applications that work flawlessly across devices.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12" y2="18"></line>
+        </svg>
+      )
+    },
+    {
+      title: "Digital Marketing",
+      description: "Strategic digital marketing services to increase your online visibility and drive conversions.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500">
+          <path d="M12 20v-6M6 20V10M18 20V4"></path>
+        </svg>
+      )
+    }
+  ];
+  
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+    <section className="py-16 bg-gradient-to-bl from-background via-blue-50/30 to-background">
       <div className="section-container">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <AnimatedText 
-            text="What I Do" 
-            className="text-sm font-medium px-3 py-1 bg-primary/5 text-primary/80 rounded-full inline-block mb-3 sm:mb-4" 
-            tag="span" 
-          />
-          <AnimatedText 
-            text="Transforming Ideas into Digital Reality" 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight" 
-            tag="h2" 
-            delay={200} 
-          />
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Comprehensive digital solutions tailored to your business needs</p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          <Card className="relative overflow-hidden">
-            <div className="absolute top-4 right-4">
-              <Avatar className="border-2 border-white h-12 w-12 shadow-md">
-                <AvatarImage src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&q=80" alt="Developer" />
-                <AvatarFallback className="bg-gradient-royal text-white">RM</AvatarFallback>
-              </Avatar>
-            </div>
-            <CardContent className="p-6 pt-8">
-              <div className="mb-4">
-                <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
-                  <Code className="text-[hsl(var(--royal-blue))]" size={24} />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => (
+            <Card 
+              key={index} 
+              className="border-none shadow-lg bg-white hover:shadow-xl transition-all duration-300"
+            >
+              <CardContent className="p-6 text-center">
+                <div className="flex justify-center mb-4">
+                  <div className="p-3 rounded-full bg-primary/10">
+                    {service.icon}
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Web Development</h3>
-              <p className="text-muted-foreground text-sm">
-                Building responsive, performant websites with modern frameworks and clean code principles.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="relative overflow-hidden">
-            <div className="absolute top-4 right-4">
-              <Avatar className="border-2 border-white h-12 w-12 shadow-md">
-                <AvatarImage src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80" alt="Designer" />
-                <AvatarFallback className="bg-gradient-royal text-white">NP</AvatarFallback>
-              </Avatar>
-            </div>
-            <CardContent className="p-6 pt-8">
-              <div className="mb-4">
-                <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
-                  <Palette className="text-[hsl(var(--royal-blue))]" size={24} />
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">UI/UX Design</h3>
-              <p className="text-muted-foreground text-sm">
-                Creating intuitive, beautiful interfaces focused on user experience and conversion.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="relative overflow-hidden">
-            <div className="absolute top-4 right-4">
-              <Avatar className="border-2 border-white h-12 w-12 shadow-md">
-                <AvatarImage src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80" alt="Engineer" />
-                <AvatarFallback className="bg-gradient-royal text-white">DB</AvatarFallback>
-              </Avatar>
-            </div>
-            <CardContent className="p-6 pt-8">
-              <div className="mb-4">
-                <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
-                  <Database className="text-[hsl(var(--royal-blue))]" size={24} />
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Backend Solutions</h3>
-              <p className="text-muted-foreground text-sm">
-                Developing robust backend systems with secure APIs and efficient database architecture.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="relative overflow-hidden">
-            <div className="absolute top-4 right-4">
-              <Avatar className="border-2 border-white h-12 w-12 shadow-md">
-                <AvatarImage src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Creative" />
-                <AvatarFallback className="bg-gradient-royal text-white">SK</AvatarFallback>
-              </Avatar>
-            </div>
-            <CardContent className="p-6 pt-8">
-              <div className="mb-4">
-                <div className="p-3 rounded-full bg-[hsl(var(--royal-blue))]/10 inline-flex">
-                  <Sparkles className="text-[hsl(var(--royal-blue))]" size={24} />
-                </div>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Creative Solutions</h3>
-              <p className="text-muted-foreground text-sm">
-                Solving complex problems with innovative approaches and creative thinking.
-              </p>
-            </CardContent>
-          </Card>
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-muted-foreground text-sm">{service.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
