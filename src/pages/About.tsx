@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { ArrowRight, Target, Heart, Zap, Code, Globe, Server, Shield, Clock, Users, Laptop } from 'lucide-react';
 import AnimatedText from '../components/AnimatedText';
 import { Link } from 'react-router-dom';
+import WebsiteMaintenanceSection from '../components/about/WebsiteMaintenanceSection';
+
 const About = () => {
   // Function to animate elements when they come into view
   useEffect(() => {
@@ -24,7 +26,9 @@ const About = () => {
       });
     };
   }, []);
-  return <div className="pt-16">
+  
+  return (
+    <div className="pt-16">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-20">
         <div className="absolute inset-0 z-0">
@@ -311,6 +315,9 @@ const About = () => {
         </div>
       </section>
       
+      {/* Website Maintenance Section - New */}
+      <WebsiteMaintenanceSection />
+      
       {/* CTA Section */}
       <section className="py-[8px]">
         <div className="section-container">
@@ -331,6 +338,8 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default About;

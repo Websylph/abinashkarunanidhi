@@ -7,6 +7,7 @@ import ServicesSection from "../components/home/ServicesSection";
 import FeaturedWorkSection from "../components/home/FeaturedWorkSection";
 import CtaSection from "../components/home/CtaSection";
 import SocialLinksSection from "../components/home/SocialLinksSection";
+import MaintenanceSection from "../components/home/MaintenanceSection";
 
 const Index = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -45,6 +46,7 @@ const Index = () => {
       <MissionVisionSection />
       <StatsSection />
       <ServicesSection />
+      <MaintenanceSection />
       <FeaturedWorkSection />
       <CtaSection />
       <SocialLinksSection />
