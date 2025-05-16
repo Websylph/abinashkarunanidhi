@@ -4,25 +4,15 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  image_url: string | null;
+}
+
 const FeaturedWorkSection = () => {
-  const [projects, setProjects] = useState([
-    {
-      title: "E-commerce Platform",
-      category: "Web Development",
-      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80"
-    },
-    {
-      title: "Mobile Banking App",
-      category: "UI/UX & Development",
-      image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80"
-    },
-    {
-      title: "Healthcare Dashboard",
-      category: "Web Application",
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80"
-    }
-  ]);
-  
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
@@ -31,7 +21,7 @@ const FeaturedWorkSection = () => {
         setLoading(true);
         const { data, error } = await supabase
           .from('projects')
-          .select('*')
+          .select('id, title, category, image_url')
           .limit(3);
           
         if (error) {
@@ -40,11 +30,29 @@ const FeaturedWorkSection = () => {
         }
         
         if (data && data.length > 0) {
-          setProjects(data.map(project => ({
-            title: project.title,
-            category: project.category,
-            image: project.image_url || "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80"
-          })));
+          setProjects(data);
+        } else {
+          // Use fallback data if no projects are found in the database
+          setProjects([
+            {
+              id: "1",
+              title: "E-commerce Platform",
+              category: "Web Development",
+              image_url: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80"
+            },
+            {
+              id: "2",
+              title: "Mobile Banking App",
+              category: "UI/UX & Development",
+              image_url: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&q=80"
+            },
+            {
+              id: "3",
+              title: "Healthcare Dashboard",
+              category: "Web Application",
+              image_url: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?auto=format&fit=crop&q=80"
+            }
+          ]);
         }
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -70,15 +78,15 @@ const FeaturedWorkSection = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <Card 
-                key={index} 
+                key={project.id} 
                 className="border-none shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <CardContent className="p-0">
                   <div className="h-56 overflow-hidden">
                     <img 
-                      src={project.image} 
+                      src={project.image_url || "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80"} 
                       alt={project.title} 
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                     />

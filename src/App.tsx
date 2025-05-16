@@ -12,6 +12,8 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Admin from "./pages/Admin";
+import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -24,18 +26,29 @@ const App = () => {
         <BrowserRouter>
           <div className="min-h-screen flex flex-col">
             <div className="noise" />
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/testimonials" element={<Testimonials />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
+            <Routes>
+              <Route
+                path="/*"
+                element={
+                  <>
+                    <Navbar />
+                    <main className="flex-grow">
+                      <Routes>
+                        <Route path="/" element={<Index />} />
+                        <Route path="/about" element={<About />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/testimonials" element={<Testimonials />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="*" element={<NotFound />} />
+                      </Routes>
+                    </main>
+                    <Footer />
+                  </>
+                }
+              />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
           </div>
         </BrowserRouter>
       </TooltipProvider>
