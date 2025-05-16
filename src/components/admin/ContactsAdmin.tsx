@@ -235,9 +235,11 @@ const ContactsAdmin = () => {
               Close
             </Button>
             <Button
-              as="a"
-              href={`mailto:${currentContact?.email}?subject=Re: ${currentContact?.subject || 'Your message'}`}
-              target="_blank"
+              onClick={() => {
+                if (currentContact?.email) {
+                  window.open(`mailto:${currentContact.email}?subject=Re: ${currentContact.subject || 'Your message'}`, '_blank');
+                }
+              }}
             >
               Reply via Email
             </Button>
@@ -272,3 +274,4 @@ const ContactsAdmin = () => {
 };
 
 export default ContactsAdmin;
+
