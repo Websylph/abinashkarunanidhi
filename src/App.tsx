@@ -13,7 +13,6 @@ import NotFound from "./pages/NotFound";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
-import Login from "./pages/Login";
 
 const queryClient = new QueryClient();
 
@@ -47,7 +46,6 @@ const App = () => {
                 }
               />
               <Route path="/admin" element={<Admin />} />
-              <Route path="/login" element={<Login />} />
             </Routes>
           </div>
         </BrowserRouter>

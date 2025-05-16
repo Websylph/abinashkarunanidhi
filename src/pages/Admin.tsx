@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import ProjectsAdmin from "@/components/admin/ProjectsAdmin";
 import TestimonialsAdmin from "@/components/admin/TestimonialsAdmin";
@@ -14,7 +14,11 @@ import { toast } from "sonner";
 const Admin = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+  
+  // Login state
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     // Check if user is already authenticated
@@ -27,20 +31,14 @@ const Admin = () => {
           throw error;
         }
         
-        if (!data.user) {
-          console.log("No user found, redirecting to login");
-          navigate("/login");
-          return;
+        if (data.user) {
+          console.log("User authenticated:", data.user);
+          setUser(data.user);
+        } else {
+          console.log("No user found, showing login form");
         }
-        
-        // User is authenticated
-        console.log("User authenticated:", data.user);
-        setUser(data.user);
-
       } catch (error: any) {
         console.error("Auth error:", error.message);
-        toast.error("Authentication error: " + error.message);
-        navigate("/login");
       } finally {
         setLoading(false);
       }
@@ -53,7 +51,7 @@ const Admin = () => {
         console.log("Auth state changed:", event);
         
         if (event === "SIGNED_OUT") {
-          navigate("/login");
+          setUser(null);
           return;
         }
         
@@ -67,7 +65,45 @@ const Admin = () => {
     return () => {
       authListener.subscription.unsubscribe();
     };
-  }, [navigate]);
+  }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsAuthenticating(true);
+
+    try {
+      // Clean up any potentially stale auth state
+      const cleanupAuthState = () => {
+        Object.keys(localStorage).forEach((key) => {
+          if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
+            console.log(`Cleaning up key: ${key}`);
+            localStorage.removeItem(key);
+          }
+        });
+      };
+
+      cleanupAuthState();
+
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      toast.success("Logged in successfully!");
+      
+      // Get updated user status
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        setUser(data.user);
+      }
+    } catch (error: any) {
+      toast.error(error.message || "Failed to login");
+    } finally {
+      setIsAuthenticating(false);
+    }
+  };
 
   const handleSignOut = async () => {
     try {
@@ -80,7 +116,7 @@ const Admin = () => {
       
       await supabase.auth.signOut({ scope: 'global' });
       toast.success("Signed out successfully");
-      navigate("/login");
+      setUser(null);
     } catch (error: any) {
       toast.error("Error signing out: " + error.message);
     }
@@ -94,11 +130,59 @@ const Admin = () => {
     );
   }
 
-  // If not loading and no user, redirect to login
+  // If not logged in, show login form
   if (!user) {
-    return null; // Will redirect in useEffect
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4 py-12">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-2xl">Admin Login</CardTitle>
+            <CardDescription>
+              Enter your credentials to access the admin panel
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="password" className="text-sm font-medium">
+                  Password
+                </label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <Button type="submit" className="w-full" disabled={isAuthenticating}>
+                {isAuthenticating ? "Logging in..." : "Login"}
+              </Button>
+            </form>
+          </CardContent>
+          <CardFooter className="flex justify-center text-sm text-muted-foreground">
+            Contact administrator for access
+          </CardFooter>
+        </Card>
+      </div>
+    );
   }
 
+  // Admin panel UI (when authenticated)
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="flex justify-between items-center mb-8">
