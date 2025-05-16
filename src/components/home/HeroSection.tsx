@@ -1,9 +1,6 @@
-
 import { Link } from "react-router-dom";
-
 const HeroSection = () => {
-  return (
-    <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-gradient-to-br from-background via-secondary/20 to-background">
+  return <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden bg-gradient-to-br from-background via-secondary/20 to-background">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -31,11 +28,7 @@ const HeroSection = () => {
           
           <div className="relative hidden lg:block">
             <div className="relative z-10 bg-white shadow-xl rounded-2xl overflow-hidden transform rotate-1">
-              <img 
-                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80" 
-                alt="Web Development" 
-                className="w-full h-full object-cover"
-              />
+              <img alt="Web Development" className="w-full h-full object-cover" src="https://i.postimg.cc/2S1VKR2W/Whats-App-Image-2025-05-16-at-10-53-17-ca8497db.jpg" />
             </div>
             
             {/* Decorative elements */}
@@ -63,8 +56,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;

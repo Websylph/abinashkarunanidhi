@@ -1,9 +1,6 @@
-
 import { Card, CardContent } from "@/components/ui/card";
-
 const MissionVisionSection = () => {
-  return (
-    <section className="py-16 bg-white">
+  return <section className="py-16 bg-white">
       <div className="section-container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Approach</h2>
@@ -14,11 +11,7 @@ const MissionVisionSection = () => {
           <Card className="border-none shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
             <CardContent className="p-0 flex flex-col h-full">
               <div className="h-48 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&q=80" 
-                  alt="Our Mission" 
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&q=80" alt="Our Mission" className="w-full h-full object-cover" />
               </div>
               <div className="p-6 flex-grow">
                 <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
@@ -32,11 +25,7 @@ const MissionVisionSection = () => {
           <Card className="border-none shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
             <CardContent className="p-0 flex flex-col h-full">
               <div className="h-48 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&q=80" 
-                  alt="Our Vision" 
-                  className="w-full h-full object-cover"
-                />
+                <img alt="Our Vision" className="w-full h-full object-cover" src="https://i.postimg.cc/NFyR799y/portfolio.avif" />
               </div>
               <div className="p-6 flex-grow">
                 <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
@@ -48,8 +37,6 @@ const MissionVisionSection = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default MissionVisionSection;
