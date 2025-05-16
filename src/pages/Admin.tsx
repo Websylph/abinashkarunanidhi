@@ -9,6 +9,7 @@ import ProjectsAdmin from "@/components/admin/ProjectsAdmin";
 import TestimonialsAdmin from "@/components/admin/TestimonialsAdmin";
 import ContactsAdmin from "@/components/admin/ContactsAdmin";
 import { User } from "@supabase/supabase-js";
+import { toast } from "sonner";
 
 const Admin = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -16,26 +17,50 @@ const Admin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Check if user is already authenticated
     const checkUser = async () => {
-      const { data } = await supabase.auth.getUser();
-      
-      if (!data.user) {
+      try {
+        setLoading(true);
+        const { data, error } = await supabase.auth.getUser();
+        
+        if (error) {
+          throw error;
+        }
+        
+        if (!data.user) {
+          console.log("No user found, redirecting to login");
+          navigate("/login");
+          return;
+        }
+        
+        // User is authenticated
+        console.log("User authenticated:", data.user);
+        setUser(data.user);
+
+      } catch (error: any) {
+        console.error("Auth error:", error.message);
+        toast.error("Authentication error: " + error.message);
         navigate("/login");
-        return;
+      } finally {
+        setLoading(false);
       }
-      
-      setUser(data.user);
-      setLoading(false);
     };
 
     checkUser();
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
+        console.log("Auth state changed:", event);
+        
         if (event === "SIGNED_OUT") {
           navigate("/login");
+          return;
         }
-        setUser(session?.user || null);
+        
+        // When signing in, update the user
+        if (event === "SIGNED_IN" && session?.user) {
+          setUser(session.user);
+        }
       }
     );
 
@@ -45,8 +70,20 @@ const Admin = () => {
   }, [navigate]);
 
   const handleSignOut = async () => {
-    await supabase.auth.signOut();
-    navigate("/login");
+    try {
+      // Clean up auth state before signing out
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
+          localStorage.removeItem(key);
+        }
+      });
+      
+      await supabase.auth.signOut({ scope: 'global' });
+      toast.success("Signed out successfully");
+      navigate("/login");
+    } catch (error: any) {
+      toast.error("Error signing out: " + error.message);
+    }
   };
 
   if (loading) {
@@ -55,6 +92,11 @@ const Admin = () => {
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
       </div>
     );
+  }
+
+  // If not loading and no user, redirect to login
+  if (!user) {
+    return null; // Will redirect in useEffect
   }
 
   return (

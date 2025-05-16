@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,21 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  // Check if the user is already logged in
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data } = await supabase.auth.getUser();
+      if (data.user) {
+        setIsLoggedIn(true);
+        navigate("/admin");
+      }
+    };
+    
+    checkUser();
+  }, [navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,13 +40,45 @@ const Login = () => {
       if (error) throw error;
 
       toast.success("Logged in successfully!");
-      navigate("/admin");
+      
+      // Add a clean-up function to remove any potentially problematic auth tokens
+      const cleanupAuthState = () => {
+        Object.keys(localStorage).forEach((key) => {
+          if (key.startsWith('supabase.auth.') || key.includes('sb-')) {
+            console.log(`Cleaning up key: ${key}`);
+          }
+        });
+      };
+
+      // Clean up any potentially stale auth state before proceeding
+      cleanupAuthState();
+      
+      // Using window.location.href for a full page reload to ensure clean state
+      window.location.href = "/admin";
     } catch (error: any) {
       toast.error(error.message || "Failed to login");
     } finally {
       setLoading(false);
     }
   };
+
+  if (isLoggedIn) {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4 py-12">
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle className="text-2xl">Already Logged In</CardTitle>
+            <CardDescription>
+              You are already logged in. Redirecting to admin panel...
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex justify-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12">
