@@ -2,11 +2,15 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { Mail, User, MessageSquare } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
 
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,15 +26,39 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // Store contact form data in Supabase
+      const { error } = await supabase.from("contacts").insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject || null,
+          message: formData.message,
+          status: "unread",
+        },
+      ]);
 
-    toast.success("Message sent successfully!", {
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      if (error) {
+        throw error;
+      }
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      toast.success("Message sent successfully!", {
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset the form
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      
+      // Optional: redirect to home page after submission
+      // navigate("/");
+    } catch (error: any) {
+      toast.error("Failed to send message", {
+        description: error.message || "Please try again later.",
+      });
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,6 +94,22 @@ const ContactForm = () => {
           onChange={handleChange}
           className="w-full px-4 py-3 rounded-md border border-input bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300"
           placeholder="Your email address"
+        />
+      </div>
+      
+      <div className="space-y-1">
+        <label htmlFor="subject" className="text-sm font-medium flex items-center gap-2">
+          <MessageSquare size={16} />
+          Subject
+        </label>
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          value={formData.subject}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-md border border-input bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300"
+          placeholder="Subject (optional)"
         />
       </div>
 

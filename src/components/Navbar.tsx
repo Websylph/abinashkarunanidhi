@@ -49,7 +49,7 @@ const Navbar = () => {
             to="/"
             className="text-lg md:text-xl font-bold tracking-tight text-primary transition-colors duration-300"
           >
-            <span className="text-gradient">Portfolio.</span>
+            <span className="text-gradient">Abinash</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -80,7 +80,7 @@ const Navbar = () => {
       <div
         className={`md:hidden fixed inset-0 bg-white z-40 transition-transform duration-300 ease-in-out transform ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        } overflow-y-auto`}
       >
         <div className="flex flex-col h-full justify-center items-center space-y-6 p-8">
           <button
